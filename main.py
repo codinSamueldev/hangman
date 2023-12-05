@@ -68,4 +68,3 @@ if strikes > 6:
 else:
     print("""
           Congrats, you guessed it!""")
-
