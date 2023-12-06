@@ -1,6 +1,10 @@
 
 import random
 import string
+from sticky_man import draw_body
+
+""" for key, value in draw_body.items():
+    print(value) """
 
 words = ["chicken", "rice", "nuggets", "strawberry"]
 algorithm_choice = random.choice(words)
@@ -21,6 +25,7 @@ input("""
     PRESS ANY KEY TO CONTINUE: """)
 
 strikes = 0
+
 
 while strikes < 6 and len(word_letters) > 0:
     word_list = []
@@ -50,9 +55,10 @@ while strikes < 6 and len(word_letters) > 0:
             word_letters.remove(user_letter)
             print("")
         else:
-            print("""
-                  Wrong dude.""")
             strikes += 1
+            print(f"""
+                  {draw_body[f'{strikes}']}
+                  Wrong dude.""")
     elif user_letter in letters_used:
         print("""
               You have already used that letter .-.""")
@@ -62,7 +68,7 @@ while strikes < 6 and len(word_letters) > 0:
         
     
 
-if strikes > 6:
+if strikes >= 6:
     print(f"""
           Game over. The word was {algorithm_choice}""")
 else:
